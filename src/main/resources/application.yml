@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: BankApplication
+  devtools:
+    add-properties: false
+  r2dbc:
+    url: r2dbc:h2:mem:///bankdb
+    username: admin
+    password: admin
+  datasource:
+    url: r2dbc:h2:mem:bankdb
+    driverClassName: org.h2.driver
+    username: admin
+    password: admin
+
+server:
+  port: 8081
+  errorResponse:
+    include-message: always
+    inlucde-binding-errors: always
+
+api:
+  endpoint: /api/v1/
+
+logging:
+  level:
+    com.devsu: DEBUG
