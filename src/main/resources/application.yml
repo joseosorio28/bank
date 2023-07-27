@@ -1,3 +1,9 @@
+server:
+  port: 8081
+  errorResponse:
+    include-message: always
+    include-binding-errors: always
+
 spring:
   application:
     name: BankApplication
@@ -8,19 +14,22 @@ spring:
     username: admin
     password: admin
   datasource:
-    url: r2dbc:h2:mem:bankdb
-    driverClassName: org.h2.driver
+    url: jdbc:h2:mem:bankdb
+    driverClassName: org.h2.Driver
     username: admin
     password: admin
-
-server:
-  port: 8081
-  errorResponse:
-    include-message: always
-    inlucde-binding-errors: always
+  h2.console:
+    enabled: true
+    path: /h2-console
+    port: 8082
 
 api:
-  endpoint: /api/v1/
+  endpoint:
+    person: /api/v1/persons/
+    client: /api/v1/clients/
+    account: /api/v1/accounts/
+    movement: /api/v1/movements/
+    report: /api/v1/reports/
 
 logging:
   level:
