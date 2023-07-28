@@ -1,6 +1,5 @@
 package com.devsu.bank.config;
 
-import com.devsu.bank.mapper.LocalDateToDateConverter;
 import com.devsu.bank.mapper.Mapper;
 import io.r2dbc.spi.ConnectionFactory;
 import io.swagger.v3.oas.models.ExternalDocumentation;
@@ -9,14 +8,9 @@ import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.data.r2dbc.convert.R2dbcCustomConversions;
 import org.springframework.r2dbc.connection.init.ConnectionFactoryInitializer;
 import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Configuration
 public class Setup {
@@ -45,13 +39,6 @@ public class Setup {
     @Bean
     public Mapper getMapper() {
         return new Mapper();
-    }
-
-    @Bean
-    public R2dbcCustomConversions r2dbcCustomConversions() {
-        List<Converter<?, ?>> converters = new ArrayList<>();
-        converters.add(new LocalDateToDateConverter());
-        return new R2dbcCustomConversions(converters);
     }
 
 }

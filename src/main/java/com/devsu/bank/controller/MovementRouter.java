@@ -14,7 +14,9 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 public class MovementRouter {
 
     @Value("${api.endpoint.movement}")
-    private String path;
+    private String pathMovement;
+    @Value("${api.endpoint.report}")
+    private String pathReport;
     private static final String PATH_VARIABLE = "{accountNumber}";
     private final MovementService service;
 
@@ -25,11 +27,12 @@ public class MovementRouter {
     @Bean
     public RouterFunction<ServerResponse> movementRoutes() {
         return RouterFunctions
-                .route(GET(path), serverRequest -> service.getMovements())
-                .andRoute(GET(path + PATH_VARIABLE), service::getMovements)
-                .andRoute(POST(path), service::createMovement)
-                .andRoute(PUT(path + PATH_VARIABLE), service::updateMovement)
-                .andRoute(DELETE(path + PATH_VARIABLE), service::deleteMovement)
+                .route(GET(pathMovement), serverRequest -> service.getMovements())
+                .andRoute(GET(pathMovement + PATH_VARIABLE), service::getMovements)
+                .andRoute(POST(pathMovement), service::createMovement)
+                .andRoute(PUT(pathMovement + PATH_VARIABLE), service::updateMovement)
+                .andRoute(DELETE(pathMovement + PATH_VARIABLE), service::deleteMovement)
+
                 ;
     }
 
