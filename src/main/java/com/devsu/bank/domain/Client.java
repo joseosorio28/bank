@@ -1,4 +1,4 @@
-package com.devsu.bank.entities;
+package com.devsu.bank.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +20,7 @@ public class Client extends Person {
     private Integer clientId;
     @Column("password")
     private String password;
-    @Column("state")
-    private boolean state;
+    @Column("status")
+    private boolean status;
 
 }

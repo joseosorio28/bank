@@ -1,4 +1,4 @@
-package com.devsu.bank.entities;
+package com.devsu.bank.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

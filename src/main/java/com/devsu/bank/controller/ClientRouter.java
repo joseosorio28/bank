@@ -1,4 +1,4 @@
-package com.devsu.bank.controller.client;
+package com.devsu.bank.controller;
 
 import com.devsu.bank.business.ClientService;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,5 +32,4 @@ public class ClientRouter {
                 .andRoute(DELETE(path + PATH_VARIABLE), service::deleteClient)
                 ;
     }
-
 }

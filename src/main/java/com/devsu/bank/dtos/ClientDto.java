@@ -18,6 +18,6 @@ public class ClientDto {
     private String address;
     private String phoneNumber;
     private String password;
-    private boolean state;
+    private boolean status;
 
 }
